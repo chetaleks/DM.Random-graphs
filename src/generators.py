@@ -3,7 +3,7 @@
 """
 
 import numpy as np
-from scipy.stats import laplace, norm
+from scipy.stats import laplace, norm, expon, pareto
 
 
 def sample_h0(n: int) -> np.ndarray:
@@ -20,9 +20,9 @@ def sample_h1(n: int, beta: float = np.sqrt(0.5)) -> np.ndarray:
     return laplace.rvs(loc=0.0, scale=beta, size=n)
 
 
-def sample_H2(n, l=2 / (3**0.5)):
+def sample_H2(n, alpha=2 / (3**0.5)):
     """Генерация выборки из Exp(l) размера n."""
-    return expon.rvs(loc=0, scale=l, size=n)
+    return expon.rvs(loc=0, scale=alpha, size=n)
 
 
 def sample_H3(n, b=1.0, alpha=3):
