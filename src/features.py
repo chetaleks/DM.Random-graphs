@@ -41,6 +41,8 @@ def compute_clique_number_1d(data: np.ndarray, d: float) -> int:
         # замена if size>max_clique на встроенный max
         max_clique = max(max_clique, size)
     return max_clique
+
+
 def count_connected_components(graph):
     """
     Вычисляет число компонент связности в неориентированном графе.
@@ -72,12 +74,12 @@ def count_connected_components(graph):
     return component_count
 
 
-
-
 # Функция для подсчета хроматического числа
 def compute_chromatic_number(G):
     """Возвращает хроматическое число χ(G) графа G."""
     # Используем жадную раскраску
     coloring = nx.coloring.greedy_color(G, strategy="largest_first")
-    chromatic_number = len(set(coloring.values()))  # Количество уникальных цветов
+    chromatic_number = len(
+        set(coloring.values())
+    )  # Количество уникальных цветов
     return chromatic_number
