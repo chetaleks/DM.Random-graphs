@@ -79,7 +79,5 @@ def compute_chromatic_number(G):
     """Возвращает хроматическое число χ(G) графа G."""
     # Используем жадную раскраску
     coloring = nx.coloring.greedy_color(G, strategy="largest_first")
-    chromatic_number = len(
-        set(coloring.values())
-    )  # Количество уникальных цветов
+    chromatic_number = len(set(coloring.values()))  # Количество уникальных цветов
     return chromatic_number
